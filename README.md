@@ -121,7 +121,8 @@ TTS Voice & High-Contrast UI
    - Accepted alternatives lookup before requiring brand-new documents.
 
 4. **Deterministic Benefit Ranking (Phase 20)**:
-   - Multi-factor scoring: $\text{Score} = \frac{(\text{benefit\_norm})^{w_b} \times (\text{confidence})^{w_c}}{(\text{effort\_score})^{w_e}}$
+   - Multi-factor scoring:
+     $$\text{Score} = \frac{(\text{benefit})^{w_b} \times (\text{confidence})^{w_c}}{(\text{effort})^{w_e}}$$
    - Adapts to user preferences: `balanced`, `highest_value`, `easiest`, `fastest`.
 
 5. **Voice Upgrades & Audio Controls (Phase 24)**:

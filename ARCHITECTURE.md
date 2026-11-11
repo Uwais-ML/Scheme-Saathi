@@ -166,7 +166,7 @@ erDiagram
 ### 2.4 Deterministic Benefit Ranking & Document Recovery (Phases 19 & 20)
 
 - **Ranking Formulation**:
-  $$\text{Score} = \frac{(\text{benefit\_norm})^{w_b} \times (\text{confidence})^{w_c}}{(\text{effort\_score})^{w_e}}$$
+  $$\text{Score} = \frac{(\text{benefit})^{w_b} \times (\text{confidence})^{w_c}}{(\text{effort})^{w_e}}$$
   Weights adjust dynamically based on user persona (`balanced`, `highest_value`, `easiest`, `fastest`).
 - **Missing-Document Recovery**:
   1. *Step 1*: Check accepted alternative documents (`find_accepted_alternatives`).
