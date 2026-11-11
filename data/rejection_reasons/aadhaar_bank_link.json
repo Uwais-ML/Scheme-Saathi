@@ -1,0 +1,18 @@
+{
+  "category": "aadhaar_bank_link",
+  "title": {
+    "en": "Aadhaar Not Seeded with Bank / NPCI",
+    "hi": "आधार बैंक खाते या एनपीसीआई (NPCI) से लिंक नहीं है"
+  },
+  "explanation": "सरकारी किस्त (डीबीटी) भेजने के लिए बैंक खाते में आधार और एनपीसीआई मैपिंग अनिवार्य है, जो अभी सक्रिय नहीं है।",
+  "how_to_fix": [
+    "अपनी बैंक शाखा में जाएं और 'आधार सीडिंग एवं डीबीटी इनेबल' फॉर्म भरें",
+    "बैंक में बायोमेट्रिक ई-केवाईसी करवाएं"
+  ],
+  "recommended_route": "bank_visit",
+  "official_grievance_portal": "https://pgportal.gov.in",
+  "helpline": "TODO_VERIFY",
+  "source_url": "https://dbtbharat.gov.in",
+  "last_verified": null,
+  "verified": false
+}

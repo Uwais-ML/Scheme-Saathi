@@ -1,0 +1,18 @@
+{
+  "category": "ineligible_income",
+  "title": {
+    "en": "Annual Income Above Limit",
+    "hi": "वार्षिक आय सीमा से अधिक"
+  },
+  "explanation": "सरकारी अभिलेखों या आयकर डेटाबेस के अनुसार पारिवारिक आय योजना की अधिकतम सीमा से अधिक दर्ज पाई गई है।",
+  "how_to_fix": [
+    "यदि सरकारी रिकॉर्ड में आय गलत दर्ज है, तो तहसील से नया सत्यापित आय प्रमाण पत्र बनवाएं",
+    "पोर्टल पर अपील या शिकायत (Grievance) दर्ज करें"
+  ],
+  "recommended_route": "appeal",
+  "official_grievance_portal": "https://pgportal.gov.in",
+  "helpline": "TODO_VERIFY",
+  "source_url": "https://pgportal.gov.in",
+  "last_verified": null,
+  "verified": false
+}

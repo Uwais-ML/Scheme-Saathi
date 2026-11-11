@@ -1,0 +1,76 @@
+{
+  "helplines": [
+    {
+      "id": "emergency_112",
+      "name": {
+        "en": "National Emergency Number",
+        "hi": "राष्ट्रीय आपातकालीन नंबर"
+      },
+      "number": "112",
+      "crisis_type": "other_emergency",
+      "verified": false,
+      "source_url": "",
+      "last_verified": null
+    },
+    {
+      "id": "women_181",
+      "name": {
+        "en": "Women Helpline",
+        "hi": "महिला हेल्पलाइन"
+      },
+      "number": "181",
+      "crisis_type": "domestic_violence",
+      "verified": false,
+      "source_url": "",
+      "last_verified": null
+    },
+    {
+      "id": "child_1098",
+      "name": {
+        "en": "Child Helpline (CHILDLINE)",
+        "hi": "बाल हेल्पलाइन (चाइल्डलाइन)"
+      },
+      "number": "1098",
+      "crisis_type": "child_in_danger",
+      "verified": false,
+      "source_url": "",
+      "last_verified": null
+    },
+    {
+      "id": "cyber_fraud_1930",
+      "name": {
+        "en": "Cyber Fraud Helpline",
+        "hi": "साइबर धोखाधड़ी हेल्पलाइन"
+      },
+      "number": "1930",
+      "crisis_type": "other_emergency",
+      "verified": false,
+      "source_url": "",
+      "last_verified": null
+    },
+    {
+      "id": "senior_14567",
+      "name": {
+        "en": "Senior Citizens Helpline",
+        "hi": "वरिष्ठ नागरिक हेल्पलाइन"
+      },
+      "number": "14567",
+      "crisis_type": "other_emergency",
+      "verified": false,
+      "source_url": "",
+      "last_verified": null
+    },
+    {
+      "id": "mental_health_14416",
+      "name": {
+        "en": "Mental Health Helpline (iCall / Vandrevala)",
+        "hi": "मानसिक स्वास्थ्य हेल्पलाइन"
+      },
+      "number": "14416",
+      "crisis_type": "self_harm",
+      "verified": false,
+      "source_url": "",
+      "last_verified": null
+    }
+  ]
+}

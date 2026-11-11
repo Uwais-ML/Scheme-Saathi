@@ -1,0 +1,46 @@
+{
+  "doc_id": "income_certificate",
+  "name": {
+    "en": "Income Certificate",
+    "hi": "आय प्रमाण पत्र"
+  },
+  "what_it_is": "राजस्व विभाग द्वारा जारी प्रमाण पत्र जो परिवार की वार्षिक आय प्रमाणित करता है।",
+  "issued_by": "राजस्व विभाग / तहसीलदार / एसडीएम",
+  "how_to_get": [
+    {
+      "mode": "offline",
+      "steps": [
+        "तहसील कार्यालय या नजदीकी सीएससी केंद्र जाएं",
+        "आय का स्व-घोषणा पत्र और आधार/राशन कार्ड जमा करें"
+      ],
+      "where": "तहसीलदार कार्यालय / सीएससी केंद्र"
+    },
+    {
+      "mode": "online",
+      "steps": [
+        "राज्य ई-डिस्ट्रिक्ट पोर्टल पर आवेदन करें"
+      ],
+      "portal": "TODO_VERIFY"
+    }
+  ],
+  "documents_needed_to_get_it": [
+    "aadhaar_card",
+    "ration_card"
+  ],
+  "typical_cost_inr": "TODO_VERIFY",
+  "typical_days": "TODO_VERIFY",
+  "accepted_alternatives": [
+    "salary_slip",
+    "bpl_card"
+  ],
+  "common_problems": [
+    {
+      "problem": "लेखपाल/पटवारी सत्यापन में विलंब",
+      "fix": "आवेदन संख्या लेकर क्षेत्रीय लेखपाल से संपर्क करें"
+    }
+  ],
+  "state_variations": {},
+  "source_url": "",
+  "last_verified": null,
+  "verified": false
+}

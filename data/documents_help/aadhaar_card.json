@@ -1,0 +1,43 @@
+{
+  "doc_id": "aadhaar_card",
+  "name": {
+    "en": "Aadhaar Card",
+    "hi": "आधार कार्ड"
+  },
+  "what_it_is": "12 अंकों का विशिष्ट पहचान पत्र जो भारत में पहचान और पते का मुख्य प्रमाण है।",
+  "issued_by": "Unique Identification Authority of India (UIDAI)",
+  "how_to_get": [
+    {
+      "mode": "offline",
+      "steps": [
+        "नजदीकी आधार सेवा केंद्र या बैंक/डाकघर जाएं",
+        "नामांकन फॉर्म भरें और बायोमेट्रिक विवरण दें"
+      ],
+      "where": "आधार सेवा केंद्र, डाकघर, या अधिकृत बैंक शाखा"
+    },
+    {
+      "mode": "online",
+      "steps": [
+        "अपडेट या डाउनलोड के लिए myaadhaar.uidai.gov.in पर जाएं"
+      ],
+      "portal": "https://myaadhaar.uidai.gov.in"
+    }
+  ],
+  "documents_needed_to_get_it": [],
+  "typical_cost_inr": "TODO_VERIFY",
+  "typical_days": "TODO_VERIFY",
+  "accepted_alternatives": [
+    "voter_id",
+    "passport"
+  ],
+  "common_problems": [
+    {
+      "problem": "नाम या जन्मतिथि में वर्तनी की गलती",
+      "fix": "संशोधन हेतु सहायक दस्तावेज लेकर आधार केंद्र जाएं"
+    }
+  ],
+  "state_variations": {},
+  "source_url": "https://uidai.gov.in",
+  "last_verified": null,
+  "verified": false
+}

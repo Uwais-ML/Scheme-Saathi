@@ -1,0 +1,18 @@
+{
+  "category": "wrong_details",
+  "title": {
+    "en": "Incorrect Bank or Land Details",
+    "hi": "गलत खाता संख्या या खसरा विवरण"
+  },
+  "explanation": "आवेदन में दर्ज बैंक खाता संख्या, आईएफएससी कोड या भूमि का खसरा नंबर सत्यापन में गलत पाया गया।",
+  "how_to_fix": [
+    "पोर्टल के 'Edit / Update Applicant Details' विकल्प में जाएं",
+    "सही बैंक पासबुक या खतौनी अनुसार विवरण सुधारें"
+  ],
+  "recommended_route": "reapply",
+  "official_grievance_portal": "https://pgportal.gov.in",
+  "helpline": "TODO_VERIFY",
+  "source_url": "https://pgportal.gov.in",
+  "last_verified": null,
+  "verified": false
+}

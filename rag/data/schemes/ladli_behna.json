@@ -1,0 +1,53 @@
+{
+  "scheme_id": "ladli_behna",
+  "name": "Mukhyamantri Ladli Behna Yojana / मुख्यमंत्री लाडली बहना योजना",
+  "state": "Madhya Pradesh",
+  "category": "women_welfare",
+  "language": "hi",
+  "source_url": "https://cmladlibehna.mp.gov.in",
+  "last_updated": "2024-01-01",
+  "eligibility_rules": {
+    "state": "Madhya Pradesh",
+    "gender": "female",
+    "min_age": 21,
+    "max_age": 60,
+    "max_annual_income": 250000,
+    "max_land_holding": 5.0
+  },
+  "required_documents": [
+    {
+      "doc_id": "samagra_id",
+      "name": "Samagra Family and Member ID",
+      "description": "समग्र परिवार एवं सदस्य आईडी",
+      "validity_rules": ["valid 9 digit samagra member id", "e-KYC completed"]
+    },
+    {
+      "doc_id": "aadhaar",
+      "name": "Aadhaar Card",
+      "description": "आधार कार्ड (समग्र एवं बैंक से लिंक)",
+      "validity_rules": ["name matches samagra", "linked with mobile"]
+    },
+    {
+      "doc_id": "bank_passbook",
+      "name": "DBT-enabled Bank Account Passbook",
+      "description": "डीबीटी सक्रिय बैंक खाता पासबुक",
+      "validity_rules": ["individual account", "Aadhaar DBT enabled"]
+    }
+  ],
+  "benefit": {
+    "type": "cash",
+    "amount_min_inr": 15000,
+    "amount_max_inr": 15000,
+    "frequency": "monthly",
+    "estimated_value_inr_per_year": 15000,
+    "notes": "₹1250 per month directly to women in MP"
+  },
+  "status": {
+    "open": true,
+    "deadline": null
+  },
+  "last_verified": "2024-01-01",
+  "verified": true,
+  "content_hash": "",
+  "content": "मुख्यमंत्री लाडली बहना योजना मध्य प्रदेश शासन द्वारा राज्य की बहनों के आर्थिक स्वावलंबन और पोषण सुधार के लिए शुरू की गई है। इस योजना में प्रत्येक पात्र महिला को प्रति माह 1250 रुपये की आर्थिक सहायता सीधे उनके बैंक खाते में दी जाती है। पात्रता: मध्य प्रदेश की स्थानीय निवासी महिला, आयु 21 से 60 वर्ष, परिवार की वार्षिक आय 2.5 लाख से कम हो, 5 एकड़ से कम कृषि भूमि हो। आवश्यक दस्तावेज: समग्र आईडी (ई-केवाईसी पूर्ण), आधार कार्ड और डीबीटी सक्रिय बैंक खाता।"
+}

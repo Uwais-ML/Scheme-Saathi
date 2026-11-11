@@ -1,0 +1,10 @@
+{
+  "scheme_id": "pmjay",
+  "scheme_name": "Ayushman Bharat PM-JAY",
+  "fields": [
+    {"key": "full_name", "label": "Full Name / पूरा नाम", "required": true, "source": "profile.name"},
+    {"key": "aadhaar_number", "label": "Aadhaar Number / आधार नंबर", "required": true, "source": "documents.aadhaar.id_number"},
+    {"key": "state", "label": "State / राज्य", "required": true, "source": "profile.state"},
+    {"key": "ration_card_no", "label": "Ration Card Number / राशन कार्ड संख्या", "required": true, "source": "documents.ration_card.id_number"}
+  ]
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "scheme_id": "pm_kisan",
+    "profile": {"user_id": "e1", "is_farmer": true, "age": 35},
+    "expected_status": "eligible"
+  },
+  {
+    "scheme_id": "pm_kisan",
+    "profile": {"user_id": "e2", "is_farmer": false, "age": 30},
+    "expected_status": "not_eligible"
+  },
+  {
+    "scheme_id": "ladli_behna",
+    "profile": {"user_id": "e3", "state": "Madhya Pradesh", "gender": "female", "age": 28, "annual_income": 120000, "land_holding": 2.0},
+    "expected_status": "eligible"
+  },
+  {
+    "scheme_id": "ladli_behna",
+    "profile": {"user_id": "e4", "state": "Rajasthan", "gender": "female", "age": 28},
+    "expected_status": "not_eligible"
+  },
+  {
+    "scheme_id": "pm_ujjwala",
+    "profile": {"user_id": "e5", "gender": "male", "age": 40},
+    "expected_status": "not_eligible"
+  },
+  {
+    "scheme_id": "mgnrega",
+    "profile": {"user_id": "e6", "age": 16},
+    "expected_status": "not_eligible"
+  }
+]

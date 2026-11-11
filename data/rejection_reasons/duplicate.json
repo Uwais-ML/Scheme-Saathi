@@ -1,0 +1,18 @@
+{
+  "category": "duplicate",
+  "title": {
+    "en": "Duplicate Application Found",
+    "hi": "परिवार या आवेदक का दोहरा आवेदन"
+  },
+  "explanation": "इस आधार नंबर या राशन कार्ड पर पहले से ही एक सक्रिय आवेदन या लाभ दर्ज है।",
+  "how_to_fix": [
+    "पोर्टल पर अपना पूर्व आवेदन क्रमांक जांचें",
+    "यदि परिवार के किसी अन्य सदस्य को लाभ मिल रहा है, तो योजना नियमावली जांचें"
+  ],
+  "recommended_route": "appeal",
+  "official_grievance_portal": "https://pgportal.gov.in",
+  "helpline": "TODO_VERIFY",
+  "source_url": "https://pgportal.gov.in",
+  "last_verified": null,
+  "verified": false
+}

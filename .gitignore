@@ -1,0 +1,47 @@
+# Environment variables & secrets (NEVER commit live API keys)
+.env
+*.env
+!.env.example
+
+# Internal specification and plan documents
+plan*.md
+
+# Python virtual environment & packages
+.venv/
+venv/
+env/
+ENV/
+build/
+dist/
+*.egg-info/
+
+# Byte-compiled / optimized files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Local Databases & storage
+*.db
+*.sqlite3
+welfare_agent.db
+data/*.db
+
+# Vector store & temporary uploads
+chroma_db/
+uploads/
+traces/
+data/pending/
+
+# Testing & coverage artifacts
+.pytest_cache/
+.coverage
+htmlcov/
+reports/
+
+# Operating System files
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.idea/
+.vscode/

@@ -1,0 +1,59 @@
+main_llm:
+  - provider: openrouter
+    model: openai/gpt-4o-mini
+    key_env: MAIN_LLM_API_KEY
+    expires_on: "2026-12-31"
+  - provider: cohere
+    model: command-r-plus-08-2024
+    key_env: COHERE_API_KEY
+    expires_on: "2026-12-31"
+  - provider: mock
+    model: mock-llm
+    key_env: MOCK_API_KEY
+
+vlm:
+  - provider: openrouter
+    model: openai/gpt-4o-mini
+    key_env: VLM_API_KEY
+    expires_on: "2026-12-31"
+  - provider: cohere
+    model: command-r-plus-08-2024
+    key_env: COHERE_API_KEY
+    expires_on: "2026-12-31"
+  - provider: mock
+    model: mock-vlm
+    key_env: MOCK_API_KEY
+
+stt:
+  - provider: assemblyai
+    key_env: STT_API_KEY
+    expires_on: "2026-12-31"
+  - provider: mock
+    key_env: MOCK_API_KEY
+
+tts:
+  - provider: cartesia
+    model: sonic-latest
+    voice_id: "01fc5e31-71e9-40dc-a220-06dbd4b4ed7e"
+    key_env: TTS_API_KEY
+    expires_on: "2026-12-31"
+  - provider: mock
+    key_env: MOCK_API_KEY
+
+embeddings:
+  - provider: local_multilingual
+    key_env: MOCK_API_KEY
+  - provider: cohere
+    model: embed-multilingual-v3.0
+    key_env: COHERE_API_KEY
+    expires_on: "2026-12-31"
+
+search:
+  - provider: tavily
+    key_env: TAVILY_API_KEYS
+    expires_on: "2026-12-31"
+  - provider: tavily_fallback
+    key_env: TAVILY_API_KEYS
+    expires_on: "2026-12-31"
+  - provider: mock_search
+    key_env: MOCK_API_KEY

@@ -1,0 +1,40 @@
+{
+  "offices": [
+    {
+      "id": "bhopal_csc_main",
+      "state": "Madhya Pradesh",
+      "district": "Bhopal",
+      "kind": "csc",
+      "name": "Common Service Center (CSC) - Kolar Road",
+      "address": "TODO_VERIFY",
+      "hours": "TODO_VERIFY",
+      "source_url": "https://csc.gov.in",
+      "last_verified": null,
+      "verified": false
+    },
+    {
+      "id": "bhopal_tehsil_huzur",
+      "state": "Madhya Pradesh",
+      "district": "Bhopal",
+      "kind": "tehsil",
+      "name": "Tehsil Office Huzur",
+      "address": "TODO_VERIFY",
+      "hours": "TODO_VERIFY",
+      "source_url": "https://bhopal.nic.in",
+      "last_verified": null,
+      "verified": false
+    },
+    {
+      "id": "bhopal_panchayat_fanda",
+      "state": "Madhya Pradesh",
+      "district": "Bhopal",
+      "kind": "panchayat",
+      "name": "Janpad Panchayat Fanda",
+      "address": "TODO_VERIFY",
+      "hours": "TODO_VERIFY",
+      "source_url": "https://bhopal.nic.in",
+      "last_verified": null,
+      "verified": false
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+[
+  {
+    "query": "मुझे किसान योजना में 6000 रुपये वाली मदद चाहिए",
+    "language": "hi",
+    "expected_scheme_id": "pm_kisan"
+  },
+  {
+    "query": "5 लाख तक का सरकारी अस्पताल में मुफ्त इलाज",
+    "language": "hi",
+    "expected_scheme_id": "pmjay"
+  },
+  {
+    "query": "मुफ्त गैस सिलेंडर और चूल्हा योजना",
+    "language": "hi",
+    "expected_scheme_id": "pm_ujjwala"
+  },
+  {
+    "query": "गांव में 100 दिन का मनरेगा रोजगार गारंटी",
+    "language": "hi",
+    "expected_scheme_id": "mgnrega"
+  },
+  {
+    "query": "मध्य प्रदेश लाडली बहना 1250 रुपये प्रतिमाह योजना",
+    "language": "hi",
+    "expected_scheme_id": "ladli_behna"
+  },
+  {
+    "query": "शेतकऱ्यांसाठी 6000 रुपये मदत योजना",
+    "language": "mr",
+    "expected_scheme_id": "pm_kisan"
+  },
+  {
+    "query": "விவசாயிகளுக்கான அரசு நிதியுதவி திட்டம்",
+    "language": "ta",
+    "expected_scheme_id": "pm_kisan"
+  }
+]

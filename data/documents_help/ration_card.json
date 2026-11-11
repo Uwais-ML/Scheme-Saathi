@@ -1,0 +1,42 @@
+{
+  "doc_id": "ration_card",
+  "name": {
+    "en": "Ration Card",
+    "hi": "राशन कार्ड"
+  },
+  "what_it_is": "राज्य सरकार द्वारा जारी पारिवारिक दस्तावेज जो रियायती राशन और पते का प्रमाण है।",
+  "issued_by": "खाद्य एवं नागरिक आपूर्ति विभाग (राज्य सरकार)",
+  "how_to_get": [
+    {
+      "mode": "offline",
+      "steps": [
+        "ब्लॉक/तहसील आपूर्ति कार्यालय या ग्राम पंचायत/सीएससी केंद्र जाएं",
+        "पारिवारिक विवरण फॉर्म और आधार कार्ड जमा करें"
+      ],
+      "where": "खाद्य एवं नागरिक आपूर्ति कार्यालय, ब्लॉक/तहसील"
+    },
+    {
+      "mode": "online",
+      "steps": [
+        "राज्य खाद्य पोर्टल पर ऑनलाइन आवेदन करें"
+      ],
+      "portal": "TODO_VERIFY"
+    }
+  ],
+  "documents_needed_to_get_it": [
+    "aadhaar_card"
+  ],
+  "typical_cost_inr": "TODO_VERIFY",
+  "typical_days": "TODO_VERIFY",
+  "accepted_alternatives": [],
+  "common_problems": [
+    {
+      "problem": "परिवार के किसी सदस्य का नाम छूटना",
+      "fix": "संबंधित सदस्य का आधार कार्ड देकर संशोधन फॉर्म भरें"
+    }
+  ],
+  "state_variations": {},
+  "source_url": "https://nfsa.gov.in",
+  "last_verified": null,
+  "verified": false
+}

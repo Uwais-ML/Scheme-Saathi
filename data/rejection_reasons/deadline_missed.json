@@ -1,0 +1,18 @@
+{
+  "category": "deadline_missed",
+  "title": {
+    "en": "Application Deadline Missed",
+    "hi": "आवेदन की समय-सीमा समाप्त"
+  },
+  "explanation": "संबंधित चरण या वित्तीय वर्ष के लिए आवेदन खिड़की बंद हो चुकी है।",
+  "how_to_fix": [
+    "अगले चरण का पोर्टल खुलने तक प्रतीक्षा करें",
+    "अपने सभी आवश्यक दस्तावेज पहले से तैयार रखें"
+  ],
+  "recommended_route": "wait_next_cycle",
+  "official_grievance_portal": "https://pgportal.gov.in",
+  "helpline": "TODO_VERIFY",
+  "source_url": "https://pgportal.gov.in",
+  "last_verified": null,
+  "verified": false
+}

@@ -1,0 +1,41 @@
+{
+  "doc_id": "land_record",
+  "name": {
+    "en": "Land Record (Khasra/Khatauni)",
+    "hi": "भूलेख (खसरा / खतौनी)"
+  },
+  "what_it_is": "कृषि भूमि के स्वामित्व और रकबे का आधिकारिक सरकारी रिकॉर्ड।",
+  "issued_by": "राजस्व विभाग / भूलेख पोर्टल",
+  "how_to_get": [
+    {
+      "mode": "offline",
+      "steps": [
+        "तहसील या राजस्व अभिलेखागार से प्रमाणित खतौनी नकल प्राप्त करें"
+      ],
+      "where": "तहसीलदार कार्यालय / पटवारी"
+    },
+    {
+      "mode": "online",
+      "steps": [
+        "राज्य भूलेख पोर्टल से डिजिटल नकल निकालें"
+      ],
+      "portal": "TODO_VERIFY"
+    }
+  ],
+  "documents_needed_to_get_it": [
+    "aadhaar_card"
+  ],
+  "typical_cost_inr": "TODO_VERIFY",
+  "typical_days": "TODO_VERIFY",
+  "accepted_alternatives": [],
+  "common_problems": [
+    {
+      "problem": "संयुक्त खाते में हिस्सेदार का नाम स्पष्ट न होना",
+      "fix": "तहसीलदार न्यायालय से हिस्सा प्रमाण पत्र या बंटवारा आदेश प्रस्तुत करें"
+    }
+  ],
+  "state_variations": {},
+  "source_url": "",
+  "last_verified": null,
+  "verified": false
+}

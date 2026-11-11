@@ -1,0 +1,18 @@
+{
+  "category": "name_mismatch",
+  "title": {
+    "en": "Name Spelling Mismatch",
+    "hi": "नाम की वर्तनी (Spelling) में अंतर"
+  },
+  "explanation": "आधार कार्ड, बैंक खाते या भूमि रिकॉर्ड में आपके नाम की स्पेलिंग अलग-अलग दर्ज है।",
+  "how_to_fix": [
+    "बैंक शाखा या आधार केंद्र पर जाकर नाम में एकरूपता करवाएं",
+    "या तहसीलदार से नाम मिलान का शपथ पत्र (Affidavit) बनवाकर पोर्टल पर पुनः प्रस्तुत करें"
+  ],
+  "recommended_route": "reapply",
+  "official_grievance_portal": "https://pgportal.gov.in",
+  "helpline": "TODO_VERIFY",
+  "source_url": "https://pgportal.gov.in",
+  "last_verified": null,
+  "verified": false
+}

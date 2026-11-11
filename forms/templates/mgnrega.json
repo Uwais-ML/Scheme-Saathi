@@ -1,0 +1,12 @@
+{
+  "scheme_id": "mgnrega",
+  "scheme_name": "MGNREGA Job Card",
+  "fields": [
+    {"key": "full_name", "label": "Full Name / आवेदक का नाम", "required": true, "source": "profile.name"},
+    {"key": "gender", "label": "Gender / लिंग", "required": true, "source": "profile.gender"},
+    {"key": "age", "label": "Age / आयु", "required": true, "source": "profile.age"},
+    {"key": "village_or_city", "label": "Village/Gram Panchayat / गाँव/ग्राम पंचायत", "required": true, "source": "profile.village_or_city"},
+    {"key": "aadhaar_number", "label": "Aadhaar Number / आधार नंबर", "required": true, "source": "documents.aadhaar.id_number"},
+    {"key": "bank_account", "label": "Bank Account Number / बैंक खाता", "required": true, "source": "documents.bank_passbook.id_number"}
+  ]
+}

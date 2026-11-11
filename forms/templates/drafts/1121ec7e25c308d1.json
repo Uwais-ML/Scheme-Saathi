@@ -1,0 +1,62 @@
+{
+  "draft_id": "1121ec7e25c308d1",
+  "scheme_id": "custom_1121ec7e",
+  "scheme_name": "Vidhwa Pension Form",
+  "form_title": "vidhwa_pension_form Application Form",
+  "source_language": "hi",
+  "fields": [
+    {
+      "key": "name",
+      "label_original": "Applicant Name / आवेदक का नाम",
+      "label_simple": "आपका पूरा नाम",
+      "type": "text",
+      "required": true,
+      "options": null,
+      "section": null,
+      "profile_hint": "profile.name",
+      "confidence": 1.0
+    },
+    {
+      "key": "aadhaar",
+      "label_original": "Aadhaar Number / आधार नंबर",
+      "label_simple": "आधार कार्ड संख्या",
+      "type": "text",
+      "required": true,
+      "options": null,
+      "section": null,
+      "profile_hint": "documents.aadhaar.id_number",
+      "confidence": 1.0
+    },
+    {
+      "key": "bank_passbook",
+      "label_original": "Bank Account Number / बैंक खाता",
+      "label_simple": "बैंक खाता नंबर",
+      "type": "text",
+      "required": true,
+      "options": null,
+      "section": null,
+      "profile_hint": "documents.bank_passbook.id_number",
+      "confidence": 1.0
+    },
+    {
+      "key": "state",
+      "label_original": "State / राज्य",
+      "label_simple": "आपका राज्य",
+      "type": "text",
+      "required": true,
+      "options": null,
+      "section": null,
+      "profile_hint": "profile.state",
+      "confidence": 1.0
+    }
+  ],
+  "attachments_required": [
+    "आधार कार्ड",
+    "बैंक पासबुक"
+  ],
+  "declarations": [],
+  "illegible_regions": [],
+  "overall_confidence": 0.92,
+  "status": "draft",
+  "source": "user_upload"
+}

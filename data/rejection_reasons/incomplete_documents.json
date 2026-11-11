@@ -1,0 +1,18 @@
+{
+  "category": "incomplete_documents",
+  "title": {
+    "en": "Incomplete or Unreadable Documents",
+    "hi": "अधूरे या अस्पष्ट दस्तावेज"
+  },
+  "explanation": "आवेदन के साथ आवश्यक प्रमाण पत्र संलग्न नहीं थे या अपलोड की गई प्रति धुंधली थी।",
+  "how_to_fix": [
+    "दस्तावेज सहायता सूची अनुसार छूटा हुआ दस्तावेज तैयार करें",
+    "पोर्टल पर स्पष्ट व रंगीन प्रति पुनः अपलोड करें"
+  ],
+  "recommended_route": "reapply",
+  "official_grievance_portal": "https://pgportal.gov.in",
+  "helpline": "TODO_VERIFY",
+  "source_url": "https://pgportal.gov.in",
+  "last_verified": null,
+  "verified": false
+}

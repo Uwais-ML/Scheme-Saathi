@@ -1,0 +1,12 @@
+{
+  "scheme_id": "pm_kisan",
+  "scheme_name": "Pradhan Mantri Kisan Samman Nidhi",
+  "fields": [
+    {"key": "full_name", "label": "Full Name / पूरा नाम", "required": true, "source": "profile.name"},
+    {"key": "aadhaar_number", "label": "Aadhaar Number / आधार नंबर", "required": true, "source": "documents.aadhaar.id_number"},
+    {"key": "state", "label": "State / राज्य", "required": true, "source": "profile.state"},
+    {"key": "district", "label": "District / जिला", "required": true, "source": "profile.district"},
+    {"key": "bank_account", "label": "Bank Account Number / बैंक खाता", "required": true, "source": "documents.bank_passbook.id_number"},
+    {"key": "land_area", "label": "Land Holding (in acres) / कृषि भूमि", "required": true, "source": "profile.land_holding"}
+  ]
+}

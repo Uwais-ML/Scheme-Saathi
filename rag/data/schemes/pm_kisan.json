@@ -1,0 +1,52 @@
+{
+  "scheme_id": "pm_kisan",
+  "name": "Pradhan Mantri Kisan Samman Nidhi (PM-KISAN) / प्रधानमंत्री किसान सम्मान निधि",
+  "state": "central",
+  "category": "agriculture",
+  "language": "hi",
+  "source_url": "https://pmkisan.gov.in",
+  "last_updated": "2024-01-01",
+  "eligibility_rules": {
+    "is_farmer": true,
+    "max_land_holding": null,
+    "min_age": 18,
+    "excludes_institutional_landholders": true,
+    "excludes_income_tax_payers": true
+  },
+  "required_documents": [
+    {
+      "doc_id": "aadhaar",
+      "name": "Aadhaar Card",
+      "description": "आधार कार्ड (पहचान पत्र)",
+      "validity_rules": ["name visible", "12 digit number visible", "not expired or torn", "photo clear"]
+    },
+    {
+      "doc_id": "land_records",
+      "name": "Land Ownership Record (Khatauni/Khasra)",
+      "description": "भूमि स्वामित्व दस्तावेज (खतौनी या जमाबंदी)",
+      "validity_rules": ["farmer name matches", "survey/khasra number visible", "revenue stamp or seal"]
+    },
+    {
+      "doc_id": "bank_passbook",
+      "name": "Bank Passbook",
+      "description": "बैंक पासबुक (खाता संख्या और IFSC कोड स्पष्ट)",
+      "validity_rules": ["account number visible", "IFSC visible", "applicant name visible"]
+    }
+  ],
+  "benefit": {
+    "type": "cash",
+    "amount_min_inr": 6000,
+    "amount_max_inr": 6000,
+    "frequency": "yearly",
+    "estimated_value_inr_per_year": 6000,
+    "notes": "₹2000 every 4 months via DBT"
+  },
+  "status": {
+    "open": true,
+    "deadline": null
+  },
+  "last_verified": "2024-01-01",
+  "verified": true,
+  "content_hash": "",
+  "content": "प्रधानमंत्री किसान सम्मान निधि (PM-KISAN) भारत सरकार की एक महत्वपूर्ण योजना है। इस योजना के अंतर्गत सभी पात्र भूमिधारक किसान परिवारों को प्रति वर्ष 6000 रुपये की वित्तीय सहायता प्रदान की जाती है। यह राशि 2000 रुपये की तीन समान किश्तों में सीधे किसानों के बैंक खातों (DBT) में भेजी जाती है। पात्रता: वे सभी किसान परिवार जिनके पास खेती योग्य भूमि है, वे इस योजना के पात्र हैं। संस्थागत भूमिधारक, संवैधानिक पद धारक, सरकारी कर्मचारी और आयकर दाता इस योजना के पात्र नहीं हैं। आवश्यक दस्तावेज: आधार कार्ड, बैंक खाता पासबुक और जमीन के दस्तावेज (खतौनी)।"
+}

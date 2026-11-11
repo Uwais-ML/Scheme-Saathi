@@ -1,0 +1,37 @@
+{
+  "doc_id": "bank_passbook",
+  "name": {
+    "en": "Bank Passbook",
+    "hi": "बैंक पासबुक"
+  },
+  "what_it_is": "बैंक खाते का विवरण, खाता संख्या और IFSC कोड दर्शाने वाली आधिकारिक पुस्तिका।",
+  "issued_by": "संबंधित बैंक शाखा",
+  "how_to_get": [
+    {
+      "mode": "offline",
+      "steps": [
+        "बैंक शाखा में खाता खोलें या नई पासबुक जारी करने का अनुरोध करें"
+      ],
+      "where": "बैंक शाखा"
+    }
+  ],
+  "documents_needed_to_get_it": [
+    "aadhaar_card"
+  ],
+  "typical_cost_inr": "TODO_VERIFY",
+  "typical_days": "TODO_VERIFY",
+  "accepted_alternatives": [
+    "cancelled_cheque",
+    "bank_statement"
+  ],
+  "common_problems": [
+    {
+      "problem": "डीबीटी (DBT) या आधार बैंक खाते से लिंक न होना",
+      "fix": "बैंक शाखा में आधार सीडिंग फॉर्म जमा करें"
+    }
+  ],
+  "state_variations": {},
+  "source_url": "",
+  "last_verified": null,
+  "verified": false
+}

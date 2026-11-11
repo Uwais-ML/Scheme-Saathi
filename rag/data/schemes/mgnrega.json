@@ -1,0 +1,50 @@
+{
+  "scheme_id": "mgnrega",
+  "name": "Mahatma Gandhi NREGA (MGNREGA) / मनरेगा",
+  "state": "central",
+  "category": "employment",
+  "language": "hi",
+  "source_url": "https://nrega.nic.in",
+  "last_updated": "2024-01-01",
+  "eligibility_rules": {
+    "min_age": 18,
+    "rural_resident": true,
+    "willing_unskilled_manual_work": true
+  },
+  "required_documents": [
+    {
+      "doc_id": "aadhaar",
+      "name": "Aadhaar Card",
+      "description": "आधार कार्ड",
+      "validity_rules": ["name visible", "age 18+"]
+    },
+    {
+      "doc_id": "bank_passbook",
+      "name": "Bank Passbook",
+      "description": "बैंक या डाकघर पासबुक",
+      "validity_rules": ["account number visible"]
+    },
+    {
+      "doc_id": "photo",
+      "name": "Passport Photo",
+      "description": "पासपोर्ट साइज फोटो",
+      "validity_rules": ["recent face photograph"]
+    }
+  ],
+  "benefit": {
+    "type": "cash",
+    "amount_min_inr": 20000,
+    "amount_max_inr": 25000,
+    "frequency": "yearly",
+    "estimated_value_inr_per_year": 22000,
+    "notes": "100 days guaranteed unskilled employment wages"
+  },
+  "status": {
+    "open": true,
+    "deadline": null
+  },
+  "last_verified": "2024-01-01",
+  "verified": true,
+  "content_hash": "",
+  "content": "महात्मा गांधी राष्ट्रीय ग्रामीण रोजगार गारंटी अधिनियम (मनरेगा / MGNREGA) ग्रामीण क्षेत्रों में प्रत्येक परिवार को एक वित्तीय वर्ष में कम से कम 100 दिनों के अकुशल मजदूरी रोजगार की कानूनी गारंटी देता है। यदि आवेदन के 15 दिनों के भीतर काम नहीं दिया जाता है, तो बेरोजगारी भत्ता दिया जाता है। पात्रता: ग्रामीण परिवार का कोई भी वयस्क नागरिक जो अकुशल शारीरिक श्रम करने का इच्छुक हो। आवश्यक दस्तावेज: आधार कार्ड, बैंक खाता विवरण और पासपोर्ट फोटो।"
+}

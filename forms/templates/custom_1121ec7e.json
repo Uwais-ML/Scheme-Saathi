@@ -1,0 +1,33 @@
+{
+  "scheme_id": "custom_1121ec7e",
+  "scheme_name": "Vidhwa Pension Form",
+  "status": "provisional",
+  "source": "user_upload",
+  "draft_id": "1121ec7e25c308d1",
+  "fields": [
+    {
+      "key": "name",
+      "label": "Applicant Name / आवेदक का नाम",
+      "required": true,
+      "source": "profile.name"
+    },
+    {
+      "key": "aadhaar",
+      "label": "Aadhaar Number / आधार नंबर",
+      "required": true,
+      "source": "documents.aadhaar.id_number"
+    },
+    {
+      "key": "bank_passbook",
+      "label": "Bank Account Number / बैंक खाता",
+      "required": true,
+      "source": "documents.bank_passbook.id_number"
+    },
+    {
+      "key": "state",
+      "label": "State / राज्य",
+      "required": true,
+      "source": "profile.state"
+    }
+  ]
+}

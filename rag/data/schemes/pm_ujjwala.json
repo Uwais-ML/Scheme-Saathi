@@ -1,0 +1,51 @@
+{
+  "scheme_id": "pm_ujjwala",
+  "name": "Pradhan Mantri Ujjwala Yojana (PMUY) / प्रधानमंत्री उज्ज्वला योजना",
+  "state": "central",
+  "category": "energy",
+  "language": "hi",
+  "source_url": "https://pmuy.gov.in",
+  "last_updated": "2024-01-01",
+  "eligibility_rules": {
+    "gender": "female",
+    "min_age": 18,
+    "bpl_or_poor": true,
+    "no_existing_lpg_connection": true
+  },
+  "required_documents": [
+    {
+      "doc_id": "aadhaar",
+      "name": "Aadhaar Card",
+      "description": "महिला आवेदक का आधार कार्ड",
+      "validity_rules": ["name visible", "photo clear", "female applicant"]
+    },
+    {
+      "doc_id": "ration_card",
+      "name": "Ration Card",
+      "description": "राशन कार्ड (परिवार की सूची)",
+      "validity_rules": ["family composition visible"]
+    },
+    {
+      "doc_id": "bank_passbook",
+      "name": "Bank Passbook",
+      "description": "बैंक खाता पासबुक",
+      "validity_rules": ["account number visible", "IFSC visible"]
+    }
+  ],
+  "benefit": {
+    "type": "subsidy",
+    "amount_min_inr": 1600,
+    "amount_max_inr": 1600,
+    "frequency": "one_time",
+    "estimated_value_inr_per_year": 1600,
+    "notes": "Free LPG connection with first refill and stove"
+  },
+  "status": {
+    "open": true,
+    "deadline": null
+  },
+  "last_verified": "2024-01-01",
+  "verified": true,
+  "content_hash": "",
+  "content": "प्रधानमंत्री उज्ज्वला योजना (PMUY) के तहत गरीब परिवारों की वयस्क महिलाओं को मुफ्त एलपीजी गैस कनेक्शन प्रदान किया जाता है। इस योजना का उद्देश्य महिलाओं को धुएं वाले पारंपरिक ईंधन से मुक्ति दिलाना और उनके स्वास्थ्य की रक्षा करना है। सरकार कनेक्शन का पूरा खर्च उठाती है जिसमें पहला सिलेंडर और गैस चूल्हा मुफ्त दिया जाता है। पात्रता: 18 वर्ष से अधिक आयु की महिला, बीपीएल परिवार, घर में पहले से कोई एलपीजी कनेक्शन न हो।"
+}
