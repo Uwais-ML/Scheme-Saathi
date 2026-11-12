@@ -168,6 +168,15 @@ def test_output_allows_official_gov_urls():
     assert "https://nrega.nic.in" in cleaned
 
 
+def test_output_keeps_hindi_sentence_punctuation_outside_official_url():
+    text = "स्रोत: https://pmkisan.gov.in।"
+
+    cleaned, violations = check_output(text)
+
+    assert cleaned == text
+    assert violations == []
+
+
 def test_output_blocks_unlisted_url():
     text = "Click here to claim your money: https://pm-kisan-fake-scam.com/claim"
     cleaned, violations = check_output(text)

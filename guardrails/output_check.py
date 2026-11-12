@@ -38,7 +38,7 @@ _LEGAL_MEDICAL_PATTERNS = [
 _COMPILED_LEGAL_MEDICAL = [re.compile(pat, re.IGNORECASE) for pat in _LEGAL_MEDICAL_PATTERNS]
 
 # URLs regex
-_URL_PATTERN = re.compile(r"https?://([A-Za-z0-9.-]+)(/[^\s]*)?", re.IGNORECASE)
+_URL_PATTERN = re.compile(r"https?://([A-Za-z0-9.-]+)(/[^\s।॥]*)?", re.IGNORECASE)
 
 # 12-digit ID regex (like Aadhaar)
 _AADHAAR_PATTERN = re.compile(r"\b(\d{4})[\s-]?(\d{4})[\s-]?(\d{4})\b")

@@ -14,7 +14,7 @@
 | **1. Tool calls for eligibility rules** | Evaluates scheme qualification deterministically across age, land holding, gender, state, and income using strict rule engines (not LLM hallucination). | [`tools/eligibility.py`](file:///Users/apple/Scheme%20Saathi/tools/eligibility.py)<br/>[`tools/household_tools.py`](file:///Users/apple/Scheme%20Saathi/tools/household_tools.py) |
 | **2. Tool calls for form filling** | Multi-step form pipeline: `form_plan` checks missing fields, `fill_form` maps verified profile attributes into scheme templates, and `form_preview` generates a clean draft. | [`tools/form.py`](file:///Users/apple/Scheme%20Saathi/tools/form.py)<br/>[`forms/templates/`](file:///Users/apple/Scheme%20Saathi/forms/templates/) |
 | **3. Human confirmation before submission** | **Zero blind or autonomous submissions.** Enforces a mandatory 3-layer human confirmation gate (verbal read-back of masked details, visual provisional preview banner, and explicit `✅ जानकारी सही है` confirmation button). | [`tools/form.py`](file:///Users/apple/Scheme%20Saathi/tools/form.py#L196-L212)<br/>[`api/routes/form.py`](file:///Users/apple/Scheme%20Saathi/api/routes/form.py#L27-L49)<br/>[`voice/commands.py`](file:///Users/apple/Scheme%20Saathi/voice/commands.py) |
-| **4. Voice-first in Hindi & Regional Languages** | High-fidelity STT/TTS in Hindi, English, Marathi, and Tamil with Web Audio `AnalyserNode` barge-in interruption, silence VAD, and digit/currency speech formatting. | [`voice/speech_formatter.py`](file:///Users/apple/Scheme%20Saathi/voice/speech_formatter.py)<br/>[`voice/commands.py`](file:///Users/apple/Scheme%20Saathi/voice/commands.py)<br/>[`static/app.js`](file:///Users/apple/Scheme%20Saathi/static/app.js) |
+| **4. Voice-first in Hindi & Regional Languages** | High-fidelity STT/TTS in Hindi, English, Marathi, and Tamil with press-to-record controls, silence detection, and digit/currency speech formatting. Microphone access starts only after the user presses the mic button. | [`voice/speech_formatter.py`](file:///Users/apple/Scheme%20Saathi/voice/speech_formatter.py)<br/>[`voice/commands.py`](file:///Users/apple/Scheme%20Saathi/voice/commands.py)<br/>[`static/app.js`](file:///Users/apple/Scheme%20Saathi/static/app.js) |
 
 ---
 
@@ -127,7 +127,7 @@ TTS Voice & High-Contrast UI
 
 5. **Voice Upgrades & Audio Controls (Phase 24)**:
    - Speech formatter translates numbers to grouped pauses (Aadhaar 4-4-4, Phone 5-5) and spells out Hindi/English currencies.
-   - Web Audio `AnalyserNode` barge-in allows interrupting the agent at any point during playback.
+   - Pressing the mic button during playback stops the audio and starts recording; the app does not open the microphone in the background.
    - Deterministic voice controls: *"repeat"*, *"slower"* (0.8x), *"faster"* (1.2x), *"stop"*, *"wait"*, *"go back"*.
 
 6. **Offline CSC / Panchayat Handoff (Phase 21 & 22)**:

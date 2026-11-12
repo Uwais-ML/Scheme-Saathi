@@ -1,7 +1,7 @@
 """Tools for updating UserProfile and setting active scheme."""
 
 from typing import Any
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, ValidationError
 
 from state.models import UserProfile
 from tools.registry import register_tool
@@ -28,16 +28,42 @@ def update_user_profile(
     if profile is None:
         return {"ok": False, "data": None, "error": "Profile context missing."}
 
-    current = profile.model_dump()
     applied = {}
+    unknown_fields = []
     for k, v in update_data.items():
-        if hasattr(profile, k) and v is not None:
-            setattr(profile, k, v)
+        if k not in type(profile).model_fields or k == "user_id":
+            unknown_fields.append(k)
+        elif v is not None:
             applied[k] = v
+
+    if not applied:
+        return {
+            "ok": False,
+            "data": None,
+            "error": (
+                f"Unsupported profile field(s): {', '.join(unknown_fields)}."
+                if unknown_fields
+                else "No profile fields were provided."
+            ),
+        }
+
+    try:
+        updated_profile = type(profile).model_validate(
+            {**profile.model_dump(), **applied}
+        )
+    except ValidationError as exc:
+        return {"ok": False, "data": None, "error": str(exc)}
+
+    for key in applied:
+        setattr(profile, key, getattr(updated_profile, key))
 
     return {
         "ok": True,
-        "data": {"updated_fields": applied, "message": "प्रोफ़ाइल सफलतापूर्वक अपडेट की गई।"},
+        "data": {
+            "updated_fields": {key: getattr(profile, key) for key in applied},
+            "rejected_fields": unknown_fields,
+            "message": "प्रोफ़ाइल सफलतापूर्वक अपडेट की गई।",
+        },
     }
 
 

@@ -91,7 +91,8 @@ These rules govern the architecture, security posture, code style, and data inte
 4. **Silence & Interruption Tolerance**:
    - Microphone recording must auto-stop after 1.5s of silence following speech.
    - Play a single, gentle encouragement prompt (*"क्या आप सुन रहे हैं? आराम से बोलिए।"*) if silence persists after the agent finishes speaking; never loop silence prompts.
-   - Barge-in must halt audio playback immediately when speech is detected.
+   - Microphone access must start only after an explicit mic-button press; never open it in the background during TTS playback.
+   - Pressing the mic button during TTS must halt playback before recording starts.
 
 ---
 

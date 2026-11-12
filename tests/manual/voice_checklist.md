@@ -5,13 +5,14 @@ Test this on a desktop browser and on a mobile / phone-sized browser viewport.
 
 ---
 
-## 1. Barge-In (Interrupting the Agent)
+## 1. Mic Button During Playback
 - [ ] **Action:** Start conversation and trigger a long spoken response from the agent.
-- [ ] **Action:** While the TTS audio is actively playing, speak into the microphone (e.g. "रुकिए" or "wait").
+- [ ] **Action:** While the TTS audio is actively playing, press the mic button.
 - [ ] **Expected:**
-  - Web Audio `AnalyserNode` detects voice activity (> threshold).
   - Audio playback immediately stops.
-  - Recording indicator activates to capture user input.
+  - Only after the button press, microphone access is requested and recording starts.
+- [ ] **Action:** Reload the app without pressing the mic button.
+- [ ] **Expected:** The app does not request microphone access during startup or TTS playback.
 
 ---
 

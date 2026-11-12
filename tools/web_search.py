@@ -30,7 +30,7 @@ def _call_tavily_api(key: str, query: str) -> dict[str, Any]:
             "query": query,
             "search_depth": "basic",
             "include_answer": True,
-            "max_results": 3,
+            "max_results": 5,
         },
         timeout=10,
     )

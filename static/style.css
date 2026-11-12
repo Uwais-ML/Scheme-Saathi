@@ -58,6 +58,17 @@ body {
   white-space: nowrap; border: 0;
 }
 
+/* Force HTML5 hidden attribute to always hide regardless of display rules */
+[hidden],
+.loading-overlay[hidden],
+.safety-strip[hidden],
+.doc-help-card[hidden],
+.ranked-schemes-card[hidden],
+.form-actions[hidden],
+.notices-bar[hidden] {
+  display: none !important;
+}
+
 /* ---- HEADER ---- */
 .app-header {
   position: sticky;
@@ -523,12 +534,16 @@ body {
   inset: 0;
   z-index: 999;
   background: rgba(249,247,243,.75);
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 16px;
   backdrop-filter: blur(2px);
+}
+
+.loading-overlay.active {
+  display: flex !important;
 }
 
 .loading-spinner {

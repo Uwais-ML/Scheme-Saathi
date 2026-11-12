@@ -13,6 +13,7 @@ const API_BASE = "";
 const MAX_RECORD_MS = 60_000;
 const SILENCE_TIMEOUT_MS = 1500; // auto-stop recording after 1.5s silence
 const POST_RESPONSE_SILENCE_MS = 8000; // gentle prompt after 8s silence
+const CHAT_REQUEST_TIMEOUT_MS = 90_000;
 
 const session = {
   id: null,
@@ -22,9 +23,9 @@ const session = {
   playbackRate: 1.0,
   lastSpokenText: "",
   currentAudio: null,
-  bargeInActive: false,
   gentlePromptPlayed: false,
   silenceTimer: null,
+  micGranted: false,
 };
 
 // ============================================================
@@ -66,6 +67,7 @@ const langBtns = document.querySelectorAll(".lang-btn");
 const UI_STRINGS = {
   hi: {
     thinking: "सोच रहा हूँ…",
+    timeoutErr: "जवाब आने में बहुत समय लगा। कृपया फिर से कोशिश करें।",
     uploadOk: "📎 दस्तावेज़ अपलोड हुआ",
     uploadErr: "⚠️ अपलोड नहीं हो सका",
     micStart: "सुन रहा हूँ…",
@@ -79,6 +81,7 @@ const UI_STRINGS = {
   },
   en: {
     thinking: "Thinking…",
+    timeoutErr: "The response took too long. Please try again.",
     uploadOk: "📎 Document uploaded",
     uploadErr: "⚠️ Upload failed",
     micStart: "Listening…",
@@ -92,6 +95,7 @@ const UI_STRINGS = {
   },
   mr: {
     thinking: "विचार करत आहे…",
+    timeoutErr: "उत्तर यायला खूप वेळ लागला. कृपया पुन्हा प्रयत्न करा.",
     uploadOk: "📎 कागदपत्र अपलोड झाले",
     uploadErr: "⚠️ अपलोड अयशस्वी",
     micStart: "ऐकत आहे…",
@@ -105,6 +109,7 @@ const UI_STRINGS = {
   },
   ta: {
     thinking: "சிந்திக்கிறேன்…",
+    timeoutErr: "பதில் வர அதிக நேரம் ஆகிறது. மீண்டும் முயற்சிக்கவும்.",
     uploadOk: "📎 ஆவணம் பதிவேற்றப்பட்டது",
     uploadErr: "⚠️ பதிவேற்றம் தோல்வியடைந்தது",
     micStart: "கேட்கிறேன்…",
@@ -193,7 +198,7 @@ function appendBotBubble(text) {
 
 function formatBotMessage(text) {
   const escaped = escapeHtml(text);
-  return escaped.replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank" rel="noopener">$1</a>');
+  return escaped.replace(/(https?:\/\/[^\s।॥]+)/g, '<a href="$1" target="_blank" rel="noopener">$1</a>');
 }
 
 function scrollToBottom() {
@@ -244,9 +249,24 @@ async function sendMessage(text) {
 
   showTypingIndicator();
   setLoading(true);
+  let controller = null;
+  let timeoutId;
 
   try {
-    const res = await fetch(`${API_BASE}/api/chat`, {
+    if (typeof AbortController !== "undefined") {
+      controller = new AbortController();
+    }
+
+    const timeout = new Promise((_, reject) => {
+      timeoutId = setTimeout(() => {
+        if (controller) controller.abort();
+        const error = new Error("Chat request timed out");
+        error.name = "TimeoutError";
+        reject(error);
+      }, CHAT_REQUEST_TIMEOUT_MS);
+    });
+
+    const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -254,7 +274,13 @@ async function sendMessage(text) {
         text: text.trim(),
         upload_ids: [...session.pendingUploadIds],
       }),
-    });
+    };
+    if (controller) requestOptions.signal = controller.signal;
+
+    const res = await Promise.race([
+      fetch(`${API_BASE}/api/chat`, requestOptions),
+      timeout,
+    ]);
 
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
@@ -296,7 +322,13 @@ async function sendMessage(text) {
     console.error("Chat error:", err);
     removeTypingIndicator();
     setLoading(false);
-    appendBotBubble(t("networkErr"));
+    appendBotBubble(
+      err.name === "AbortError" || err.name === "TimeoutError"
+        ? t("timeoutErr")
+        : t("networkErr")
+    );
+  } finally {
+    clearTimeout(timeoutId);
   }
 }
 
@@ -331,7 +363,7 @@ els.sendBtn.addEventListener("click", () => {
 });
 
 // ============================================================
-// VOICE – BARGE-IN, STT & VOICE COMMANDS
+// VOICE – STT & VOICE COMMANDS
 // ============================================================
 let mediaRecorder = null;
 let audioChunks = [];
@@ -544,9 +576,6 @@ async function playTTS(text) {
   stopTTS();
   session.lastSpokenText = text;
 
-  // Start background mic listener for Barge-in while audio plays
-  startBargeInListener();
-
   try {
     const res = await fetch(`${API_BASE}/api/tts`, {
       method: "POST",
@@ -563,92 +592,40 @@ async function playTTS(text) {
     session.currentAudio = audio;
     audio.playbackRate = session.playbackRate;
 
-    await new Promise((resolve) => {
-      audio.addEventListener("ended", () => {
-        URL.revokeObjectURL(url);
-        stopBargeInListener();
-        session.currentAudio = null;
-        resolve();
-      });
-      audio.addEventListener("error", () => {
-        stopBargeInListener();
-        session.currentAudio = null;
-        resolve();
-      });
-      audio.play().catch(() => resolve());
-    });
+    await Promise.race([
+      new Promise((resolve) => {
+        audio.addEventListener("ended", () => {
+          URL.revokeObjectURL(url);
+          session.currentAudio = null;
+          resolve();
+        });
+        audio.addEventListener("error", () => {
+          session.currentAudio = null;
+          resolve();
+        });
+        audio.play().catch(() => resolve());
+      }),
+      new Promise((resolve) => setTimeout(resolve, 10000)),
+    ]);
   } catch (_) {
     // Fallback: browser speechSynthesis
     if ("speechSynthesis" in window) {
-      await new Promise((resolve) => {
-        const utt = new SpeechSynthesisUtterance(text);
-        utt.lang = langToLocale(session.language);
-        utt.rate = session.playbackRate * 0.9;
-        utt.onend = () => {
-          stopBargeInListener();
-          resolve();
-        };
-        utt.onerror = () => {
-          stopBargeInListener();
-          resolve();
-        };
-        window.speechSynthesis.speak(utt);
-      });
+      await Promise.race([
+        new Promise((resolve) => {
+          const utt = new SpeechSynthesisUtterance(text);
+          utt.lang = langToLocale(session.language);
+          utt.rate = session.playbackRate * 0.9;
+          utt.onend = () => {
+            resolve();
+          };
+          utt.onerror = () => {
+            resolve();
+          };
+          window.speechSynthesis.speak(utt);
+        }),
+        new Promise((resolve) => setTimeout(resolve, 6000)),
+      ]);
     }
-  }
-}
-
-let bargeInStream = null;
-let bargeInContext = null;
-let bargeInInterval = null;
-
-async function startBargeInListener() {
-  try {
-    if (session.bargeInActive) return;
-    const stream = await navigator.mediaDevices.getUserMedia({
-      audio: { echoCancellation: true, noiseSuppression: true },
-    });
-    bargeInStream = stream;
-    const AudioCtx = window.AudioContext || window.webkitAudioContext;
-    bargeInContext = new AudioCtx();
-    const source = bargeInContext.createMediaStreamSource(stream);
-    const analyser = bargeInContext.createAnalyser();
-    analyser.fftSize = 256;
-    source.connect(analyser);
-
-    const buffer = new Uint8Array(analyser.frequencyBinCount);
-    session.bargeInActive = true;
-
-    bargeInInterval = setInterval(() => {
-      if (!session.bargeInActive) return;
-      analyser.getByteFrequencyData(buffer);
-      let sum = 0;
-      for (let i = 0; i < buffer.length; i++) sum += buffer[i];
-      const avg = sum / buffer.length;
-
-      // Energy threshold for barge-in
-      if (avg > 25 && session.currentAudio) {
-        stopTTS();
-        stopBargeInListener();
-        showToast("सुन रहा हूँ…");
-        toggleRecording();
-      }
-    }, 120);
-  } catch (_) {
-    // Barge-in silently optional if mic unavailable
-  }
-}
-
-function stopBargeInListener() {
-  session.bargeInActive = false;
-  clearInterval(bargeInInterval);
-  if (bargeInStream) {
-    bargeInStream.getTracks().forEach((t) => t.stop());
-    bargeInStream = null;
-  }
-  if (bargeInContext) {
-    bargeInContext.close().catch(() => {});
-    bargeInContext = null;
   }
 }
 
@@ -893,11 +870,20 @@ function showToast(msg, durationMs = 3500) {
 }
 
 function setLoading(on) {
-  els.loadingOverlay.hidden = !on;
+  if (on) {
+    els.loadingOverlay.classList.add("active");
+    els.loadingOverlay.removeAttribute("hidden");
+    els.loadingOverlay.style.display = "flex";
+  } else {
+    els.loadingOverlay.classList.remove("active");
+    els.loadingOverlay.setAttribute("hidden", "");
+    els.loadingOverlay.style.display = "none";
+  }
   els.sendBtn.disabled = on;
   els.micBtn.disabled = on;
 }
 
 (async function boot() {
+  setLoading(false);
   await initSession();
 })();

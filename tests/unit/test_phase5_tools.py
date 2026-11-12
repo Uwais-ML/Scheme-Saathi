@@ -92,3 +92,29 @@ def test_profile_tools_update_and_active_scheme():
     assert set_res["ok"] is True
     assert profile.active_scheme == "pm_kisan"
     assert "pm_kisan" in profile.schemes_discussed
+
+
+def test_profile_update_rejects_unsupported_fields_without_reporting_success():
+    profile = UserProfile(user_id="u8")
+
+    result = update_user_profile(
+        fields={"farmer": True},
+        profile=profile,
+    )
+
+    assert result["ok"] is False
+    assert result["error"] == "Unsupported profile field(s): farmer."
+    assert profile.is_farmer is None
+
+
+def test_profile_update_rejects_invalid_values_without_mutating_profile():
+    profile = UserProfile(user_id="u9")
+
+    result = update_user_profile(
+        fields={"age": "not an age"},
+        profile=profile,
+    )
+
+    assert result["ok"] is False
+    assert "age" in result["error"]
+    assert profile.age is None

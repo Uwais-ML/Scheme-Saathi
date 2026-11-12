@@ -12,7 +12,7 @@ flowchart TD
 
     subgraph Frontend ["Frontend (HTML5 / Vanilla JS / CSS)"]
         UI[Responsive High-Contrast UI]
-        AudioEngine[Web Audio AnalyserNode<br/>Barge-in & Silence VAD]
+        AudioEngine[Press-to-record<br/>Silence VAD]
         VoiceControls[Local Voice Commands<br/>Repeat / Slower / Faster]
         ChipsBar[Household Member Chips]
     end
@@ -67,7 +67,7 @@ flowchart TD
 - **Audio Controls (`voice/commands.py`)**:
   - Deterministic matcher for voice commands: "repeat", "slower", "faster", "stop", "wait", "go back".
   - Entity confirmation: Deterministic binary classifier (`yes`/`no`) validating transcribed names, numbers, and dates.
-- **Barge-In (Interruption Handling)**: Web Audio `AnalyserNode` monitors mic frequency volume during audio playback. When speech energy crosses threshold (>25 dB), playback is halted instantly and audio recording starts.
+- **Microphone access**: Recording starts only after the user presses the mic button. Pressing it during playback stops TTS before recording; no background microphone listener runs during speech playback.
 
 ---
 

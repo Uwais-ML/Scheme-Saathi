@@ -1,5 +1,7 @@
 """Voice routes for STT and TTS."""
 
+import logging
+
 from fastapi import APIRouter, File, Form, UploadFile, HTTPException
 from fastapi.responses import Response
 from pydantic import BaseModel
@@ -8,6 +10,8 @@ from voice.stt import SpeechToText
 from voice.speech_formatter import format_for_speech
 from voice.commands import detect_voice_command, confirm_entity_response
 from config.settings import settings
+
+logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/api", tags=["voice"])
 
@@ -63,7 +67,7 @@ def synthesize_speech(req: TTSRequest):
     spoken_text = format_for_speech(req.text, language=req.language)
 
     api_key = settings.TTS_API_KEY
-    if api_key and "placeholder" not in api_key.lower() and api_key.startswith("sk_car"):
+    if settings.TTS_PROVIDER == "cartesia" and api_key and "placeholder" not in api_key.lower():
         try:
             resp = http.post(
                 "https://api.cartesia.ai/tts/bytes",
@@ -87,8 +91,15 @@ def synthesize_speech(req: TTSRequest):
             )
             if resp.status_code == 200:
                 return Response(content=resp.content, media_type="audio/wav")
-        except Exception:
-            pass
+            logger.warning("Cartesia TTS returned %d: %s", resp.status_code, resp.text[:500])
+        except http.RequestException:
+            logger.exception("Cartesia TTS request failed")
+    else:
+        logger.warning(
+            "Cartesia TTS unavailable: provider=%s, api_key_configured=%s",
+            settings.TTS_PROVIDER,
+            bool(api_key and "placeholder" not in api_key.lower()),
+        )
 
     # Return silent WAV fallback (browser speechSynthesis will take over)
     return Response(content=b"", media_type="audio/wav")
